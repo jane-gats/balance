@@ -1,0 +1,10 @@
+{
+    "db": {
+    "host":     "database",
+    "port":     "5432",
+    "database": "db_finance",
+    "user":     "user",
+    "password": "123",
+    "connections": 10  
+  }
+}
