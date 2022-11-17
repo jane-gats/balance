@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: db
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: db_finance
+    volumes:
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres:/data/postgres
+    ports:
+      - 5432:5432
+    restart: always
+
+  balance:
+    container_name: balance
+    build: .
+    volumes:
+      - ./config.json:/config/config.json
+    restart: always
+
+volumes:
+    postgres:

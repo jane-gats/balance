@@ -10,16 +10,14 @@ type DBConfig struct {
 	Database string
 	User     string
 	Password string
-	Connections int
 }
 
-
-func GetConfig() (DBConfig, error) {
+func GetConfig(path string) (DBConfig, error) {
 	v := viper.New()
 	c := DBConfig{}
 
 	v.SetConfigName("config")
-	v.AddConfigPath(".")
+	v.AddConfigPath(path)
 
 	err := v.ReadInConfig()
 	if err != nil {
@@ -31,7 +29,7 @@ func GetConfig() (DBConfig, error) {
 	c.Host = v.GetString("db.host")
 	c.Database = v.GetString("db.database")
 	c.Port = v.GetString("db.port")
-	c.Connections = v.GetInt("db.connections")
+	//c.Connections = v.GetInt("db.connections")
 
 	return c, nil
 }

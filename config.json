@@ -1,10 +1,9 @@
 {
     "db": {
-    "host":     "database",
+    "host":     "postgres",
     "port":     "5432",
     "database": "db_finance",
-    "user":     "user",
-    "password": "123",
-    "connections": 10  
+    "user":     "postgres",
+    "password": "123"
   }
 }
