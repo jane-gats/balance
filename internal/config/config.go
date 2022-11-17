@@ -29,7 +29,6 @@ func GetConfig(path string) (DBConfig, error) {
 	c.Host = v.GetString("db.host")
 	c.Database = v.GetString("db.database")
 	c.Port = v.GetString("db.port")
-	//c.Connections = v.GetInt("db.connections")
 
 	return c, nil
 }
