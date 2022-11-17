@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   postgres:
-    container_name: db
+    container_name: postgres
     image: postgres
     environment:
       POSTGRES_USER: postgres
@@ -20,6 +20,8 @@ services:
     build: .
     volumes:
       - ./config.json:/config/config.json
+    depends_on:
+      - postgres
     restart: always
 
 volumes:
